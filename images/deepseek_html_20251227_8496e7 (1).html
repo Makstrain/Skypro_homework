@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт мини-игр</title>
+    <style>
+        /* Сброс стандартных отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-color: #000000;
+            position: relative;
+        }
+        
+        /* Хедер с фоновой картинкой */
+        .header {
+            width: 100%;
+            height: 800px;
+            background-image: url('images/game_header.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Контейнер для контента хедера */
+        .header-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            height: 100%;
+            position: relative;
+        }
+        
+        /* Контейнер приветствия */
+        .welcome-container {
+            position: absolute;
+            top: 196px;
+            left: 120px;
+            width: auto;
+            height: 244px;
+            text-align: left;
+        }
+        
+        /* Заголовок - первая строка */
+        .welcome-title-line1 {
+            font-size: 64px;
+            font-weight: 700;
+            font-style: bold;
+            line-height: 1;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial Black', 'Arial Bold', sans-serif;
+            display: block;
+        }
+        
+        /* Заголовок - вторая строка */
+        .welcome-title-line2 {
+            font-size: 64px;
+            font-weight: 700;
+            font-style: bold;
+            line-height: 1;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial Black', 'Arial Bold', sans-serif;
+            display: block;
+        }
+        
+        /* Текст под заголовком */
+        .welcome-text {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: #000000;
+            margin-top: 24px;
+            max-width: 800px;
+        }
+        
+        /* Кнопка "Поехали" */
+        .start-button {
+            width: 247px;
+            height: 66px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            border-radius: 60px;
+        }
+        
+        /* Эффект при наведении */
+        .start-button:hover {
+            background-color: #333333;
+        }
+        
+        /* Секция с играми - черный фон на всю ширину */
+        .games-section {
+            width: 100%;
+            background-color: #000000;
+            padding: 94px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Контейнер для контента внутри черной секции */
+        .games-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Правая звезда на фоне */
+        .star-background {
+            position: absolute;
+            top: 77px; /* Отступ от хедера */
+            left: 814px; /* Отступ от левой границы */
+            z-index: 1;
+            pointer-events: none; /* Чтобы не мешала кликам */
+        }
+        
+        /* Левая большая звезда */
+        .star-left-big {
+            position: absolute;
+            top: 822px; /* Отступ от хедера */
+            right: 20px; /* Отступ справа от основного контейнера */
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .star-background img,
+        .star-left-big img {
+            display: block;
+            width: auto;
+            height: auto;
+        }
+        
+        /* Заголовок "Об играх" */
+        .games-title {
+            font-size: 64px;
+            font-weight: 700;
+            font-style: bold;
+            line-height: 1;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial Black', 'Arial Bold', sans-serif;
+            text-align: left;
+        }
+        
+        /* Текст под заголовком */
+        .games-description {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #ffffff;
+            margin-top: 24px;
+            text-align: left;
+            max-width: 1000px;
+        }
+        
+        /* Контейнер для грида с играми */
+        .games-grid-container {
+            margin-top: 72px;
+        }
+        
+        /* Сетка из 3 колонок */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 32px;
+        }
+        
+        /* Колонки внутри сетки */
+        .game-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Контейнеры игр внутри колонок */
+        .game-card {
+            background-color: #ffffff;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            font-size: 24px;
+            color: #000000;
+            font-weight: 600;
+            text-align: left;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Стиль для картинки игры */
+        .game-image {
+            width: 100%;
+            height: 314px;
+            object-fit: cover;
+            border-radius: 30px 30px 30px 30px;
+        }
+        
+        /* Контент игры */
+        .game-content {
+            padding: 32px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        /* Бейдж с номером игры */
+        .game-badge {
+            font-size: 16px;
+            font-weight: 500;
+            background: #F7F7F7;
+            padding: 8px 16px 10px 16px;
+            border-radius: 52.58px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        
+        /* Заголовок игры */
+        .game-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #000000;
+            margin: 0;
+        }
+        
+        /* Отступ между карточками в колонке */
+        .game-card:not(:last-child) {
+            margin-bottom: 32px;
+        }
+        
+        /* Первая колонка */
+        .game-column-1 .game-card:nth-child(1) {
+            height: auto;
+        }
+        
+        .game-column-1 .game-card:nth-child(2) {
+            height: auto;
+        }
+        
+        /* Вторая колонка */
+        .game-column-2 .game-card:nth-child(1) {
+            height: auto;
+        }
+        
+        .game-column-2 .game-card:nth-child(2) {
+            height: auto;
+        }
+        
+        /* Третья колонка */
+        .game-column-3 .game-card:nth-child(1) {
+            height: auto;
+        }
+        
+        .game-column-3 .game-card:nth-child(2) {
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <article class="welcome-container">
+                <h1 class="welcome-title">
+                    <span class="welcome-title-line1">Добро пожаловать</span>
+                    <span class="welcome-title-line2">на мой сайт мини-игр</span>
+                </h1>
+                <p class="welcome-text">Тебе предстоит пройти несколько увлекательных игр. Если готов, нажимай "Поехали" и приступай</p>
+                <button class="start-button">Поехали!</button>
+            </article>
+        </div>
+    </header>
+    
+    <main>
+        <section class="games-section">
+            <!-- Правая звезда на фоне -->
+            <div class="star-background">
+                <img src="images/star.svg" alt="Звезда" />
+            </div>
+            
+            <!-- Левая большая звезда -->
+            <div class="star-left-big">
+                <img src="images/star-left-big.svg" alt="Большая звезда слева" />
+            </div>
+            
+            <div class="games-container">
+                <article>
+                    <h1 class="games-title">Об играх</h1>
+                    <p class="games-description">
+                        В моей коллекции представлено 6 игр на разные темы.<br>
+                        Игры несложные — в них может поиграть каждый.<br>
+                        Все игры доступны для пользования.
+                    </p>
+                    
+                    <div class="games-grid-container">
+                        <div class="games-grid">
+                            <!-- Колонка 1 -->
+                            <div class="game-column game-column-1">
+                                <div class="game-card">
+                                    <img src="images/game1.svg" alt="Игра 1" class="game-image">
+                                    <div class="game-content">
+                                        <div class="game-badge">Игра №1</div>
+                                        <h1 class="game-title">Угадай число</h1>
+                                    </div>
+                                </div>
+                                <div class="game-card">
+                                    <img src="images/game4.svg" alt="Игра 4" class="game-image">
+                                    <div class="game-content">
+                                        <div class="game-badge">Игра №4</div>
+                                        <h1 class="game-title">Камень, ножницы, бумага</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Колонка 2 -->
+                            <div class="game-column game-column-2">
+                                <div class="game-card">
+                                    <img src="images/game2.svg" alt="Игра 2" class="game-image">
+                                    <div class="game-content">
+                                        <div class="game-badge">Игра №2</div>
+                                        <h1 class="game-title">Простая арифметика</h1>
+                                    </div>
+                                </div>
+                                <div class="game-card">
+                                    <img src="images/game5.svg" alt="Игра 5" class="game-image">
+                                    <div class="game-content">
+                                        <div class="game-badge">Игра №5</div>
+                                        <h1 class="game-title">Простая викторина</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Колонка 3 -->
+                            <div class="game-column game-column-3">
+                                <div class="game-card">
+                                    <img src="images/game3.svg" alt="Игра 3" class="game-image">
+                                    <div class="game-content">
+                                        <div class="game-badge">Игра №3</div>
+                                        <h1 class="game-title">Переверни текст</h1>
+                                    </div>
+                                </div>
+                                <div class="game-card">
+                                    <img src="images/game6.svg" alt="Игра 6" class="game-image">
+                                    <div class="game-content">
+                                        <div class="game-badge">Игра №6</div>
+                                        <h1 class="game-title">Генератор случайных цветов</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
