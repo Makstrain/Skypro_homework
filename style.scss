@@ -1,0 +1,313 @@
+/* Сброс стандартных отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: #000000;
+    position: relative;
+}
+
+/* Хедер с фоновой картинкой */
+.header {
+    width: 100%;
+    height: 800px;
+    background-image: url('images/game_header.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 2;
+}
+
+/* Контейнер для контента хедера */
+.header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}
+
+/* Контейнер приветствия */
+.welcome-container {
+    position: absolute;
+    top: 196px;
+    left: 120px;
+    width: auto;
+    height: 244px;
+    text-align: left;
+}
+
+/* Заголовок - первая строка */
+.welcome-title-line1 {
+    font-size: 64px;
+    font-weight: 700;
+    font-style: bold;
+    line-height: 1;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    display: block;
+}
+
+/* Заголовок - вторая строка */
+.welcome-title-line2 {
+    font-size: 64px;
+    font-weight: 700;
+    font-style: bold;
+    line-height: 1;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    display: block;
+}
+
+/* Текст под заголовком */
+.welcome-text {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #000000;
+    margin-top: 24px;
+    max-width: 800px;
+}
+
+/* Кнопка "Поехали" */
+.start-button {
+    width: 247px;
+    height: 66px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    border-radius: 60px;
+}
+
+/* Эффект при наведении */
+.start-button:hover {
+    background-color: #333333;
+}
+
+/* Секция с играми - черный фон на всю ширину */
+.games-section {
+    width: 100%;
+    background-color: #000000;
+    padding: 94px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Контейнер для контента внутри черной секции */
+.games-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Первая звезда справа */
+.star-background {
+    position: absolute;
+    top: 122px;
+    left: 1066px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Вторая звезда слева от основного контейнера */
+.star-left-big {
+    position: absolute;
+    top: 822px;
+    right: calc(50% + 600px + 20px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Третья маленькая звезда слева */
+.star-left-small {
+    position: absolute;
+    top: 777px;
+    right: calc(50% + 600px + 11px + 46px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.star-background img,
+.star-left-big img,
+.star-left-small img {
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+/* Заголовок "Об играх" */
+.games-title {
+    font-size: 64px;
+    font-weight: 700;
+    font-style: bold;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    text-align: left;
+}
+
+/* Текст под заголовком */
+.games-description {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-top: 24px;
+    text-align: left;
+    max-width: 1000px;
+}
+
+/* Контейнер для грида с играми */
+.games-grid-container {
+    margin-top: 72px;
+}
+
+/* Сетка из 3 колонок */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 32px;
+}
+
+/* Колонки внутри сетки */
+.game-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили для ссылок на карточки игр */
+.game-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.game-card-link:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+/* Контейнеры игр внутри колонок */
+.game-card {
+    background-color: #ffffff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 24px;
+    color: #000000;
+    font-weight: 600;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении на карточку игры */
+.game-card-link:hover .game-card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Стиль для картинки игры */
+.game-image {
+    width: 100%;
+    height: 314px;
+    object-fit: cover;
+    border-radius: 30px 30px 30px 30px;
+    transition: transform 0.3s ease;
+}
+
+/* Эффект при наведении на картинку */
+.game-card-link:hover .game-image {
+    transform: scale(1.05);
+}
+
+/* Контент игры */
+.game-content {
+    padding: 32px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Бейдж с номером игры */
+.game-badge {
+    font-size: 16px;
+    font-weight: 500;
+    background: #F7F7F7;
+    padding: 8px 16px 10px 16px;
+    border-radius: 52.58px;
+    margin-bottom: 16px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+/* Эффект при наведении на бейдж */
+.game-card-link:hover .game-badge {
+    background-color: #e0e0e0;
+}
+
+/* Заголовок игры */
+.game-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000000;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Эффект при наведении на заголовок */
+.game-card-link:hover .game-title {
+    color: #333333;
+}
+
+/* Первая колонка */
+.game-column-1 .game-card:nth-child(1) {
+    height: auto;
+}
+
+.game-column-1 .game-card:nth-child(2) {
+    height: auto;
+}
+
+/* Вторая колонка */
+.game-column-2 .game-card:nth-child(1) {
+    height: auto;
+}
+
+.game-column-2 .game-card:nth-child(2) {
+    height: auto;
+}
+
+/* Третья колонка */
+.game-column-3 .game-card:nth-child(1) {
+    height: auto;
+}
+
+.game-column-3 .game-card:nth-child(2) {
+    height: auto;
+}
