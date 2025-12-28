@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт мини-игр</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <article class="welcome-container">
+                <h1 class="welcome-title">
+                    <span class="welcome-title-line1">Добро пожаловать</span>
+                    <span class="welcome-title-line2">на мой сайт мини-игр</span>
+                </h1>
+                <p class="welcome-text">Тебе предстоит пройти несколько увлекательных игр. Если готов, нажимай "Поехали" и приступай</p>
+                <button class="start-button">Поехали!</button>
+            </article>
+        </div>
+    </header>
+    
+    <main>
+        <div class="games-section">
+            <!-- Первая звезда справа -->
+            <div class="star-background">
+                <img src="images/star.svg" alt="Звезда">
+            </div>
+            
+            <!-- Вторая звезда слева от основного контейнера -->
+            <div class="star-left-big">
+                <img src="images/star-left-big.svg" alt="Большая звезда слева">
+            </div>
+            
+            <!-- Третья маленькая звезда слева -->
+            <div class="star-left-small">
+                <img src="images/star-left-small.svg" alt="Маленькая звезда слева">
+            </div>
+            
+            <div class="games-container">
+                <article>
+                    <h2 class="games-title">Об играх</h2>
+                    <p class="games-description">
+                        В моей коллекции представлено 6 игр на разные темы.<br>
+                        Игры несложные — в них может поиграть каждый.<br>
+                        Все игры доступны для пользования.
+                    </p>
+                    
+                    <div class="games-grid-container">
+                        <div class="games-grid">
+                            <!-- Колонка 1 -->
+                            <div class="game-column game-column-1">
+                                <a href="#" class="game-card-link">
+                                    <div class="game-card">
+                                        <img src="images/game1.svg" alt="Игра 1" class="game-image">
+                                        <div class="game-content">
+                                            <div class="game-badge">Игра №1</div>
+                                            <h3 class="game-title">Угадай число</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="game-card-link">
+                                    <div class="game-card">
+                                        <img src="images/game4.svg" alt="Игра 4" class="game-image">
+                                        <div class="game-content">
+                                            <div class="game-badge">Игра №4</div>
+                                            <h3 class="game-title">Камень, ножницы, бумага</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Колонка 2 -->
+                            <div class="game-column game-column-2">
+                                <a href="#" class="game-card-link">
+                                    <div class="game-card">
+                                        <img src="images/game2.svg" alt="Игра 2" class="game-image">
+                                        <div class="game-content">
+                                            <div class="game-badge">Игра №2</div>
+                                            <h3 class="game-title">Простая арифметика</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="game-card-link">
+                                    <div class="game-card">
+                                        <img src="images/game5.svg" alt="Игра 5" class="game-image">
+                                        <div class="game-content">
+                                            <div class="game-badge">Игра №5</div>
+                                            <h3 class="game-title">Простая викторина</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Колонка 3 -->
+                            <div class="game-column game-column-3">
+                                <a href="#" class="game-card-link">
+                                    <div class="game-card">
+                                        <img src="images/game3.svg" alt="Игра 3" class="game-image">
+                                        <div class="game-content">
+                                            <div class="game-badge">Игра №3</div>
+                                            <h3 class="game-title">Переверни текст</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="game-card-link">
+                                    <div class="game-card">
+                                        <img src="images/game6.svg" alt="Игра 6" class="game-image">
+                                        <div class="game-content">
+                                            <div class="game-badge">Игра №6</div>
+                                            <h3 class="game-title">Генератор случайных цветов</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
