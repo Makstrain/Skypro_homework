@@ -1,8 +1,11 @@
-/* Сброс стандартных отступов */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+h2,h3,p,a {
+   font-family: "Montserrat", sans-serif; 
 }
 
 body {
@@ -41,32 +44,39 @@ body {
     width: auto;
     height: 244px;
     text-align: left;
+    font-family: 'Montserrat';
 }
 
-/* Заголовок - первая строка */
-.welcome-title-line1 {
-    font-size: 64px;
-    font-weight: 700;
-    font-style: bold;
-    line-height: 1;
+/* ========== ЗАГОЛОВОК WELCOME ========== */
+/* Общие стили для заголовка */
+.welcome-title {
     color: #000000;
+    font-weight: 700;
     margin: 0;
     padding: 0;
-    font-family: 'Arial Black', 'Arial Bold', sans-serif;
+}
+
+/* Десктопные строки (2 строки) */
+.desktop-line {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+    color: #000000;
+}
+
+.desktop-line-1,
+.desktop-line-2 {
     display: block;
 }
 
-/* Заголовок - вторая строка */
-.welcome-title-line2 {
-    font-size: 64px;
+/* Мобильные строки (4 строки) - скрыты на десктопе */
+.mobile-line {
+    display: none;
+    font-size: 40px;
     font-weight: 700;
-    font-style: bold;
-    line-height: 1;
+    line-height: 1.1;
     color: #000000;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial Black', 'Arial Bold', sans-serif;
-    display: block;
 }
 
 /* Текст под заголовком */
@@ -95,6 +105,7 @@ body {
     justify-content: center;
     transition: background-color 0.3s;
     border-radius: 60px;
+    text-decoration: none;
 }
 
 /* Эффект при наведении */
@@ -154,16 +165,31 @@ body {
     height: auto;
 }
 
+/* ========== СТИЛИ ДЛЯ СЕКЦИИ ИГР ========== */
+
+/* Мобильный заголовок "Мини-игры" - скрыт на десктопе */
+.games-title-mobile {
+    display: none;
+}
+
+/* Контейнер основного контента */
+.games-content {
+    display: block;
+}
+
+/* Введение к играм (десктоп) */
+.games-intro {
+    margin-bottom: 72px;
+}
+
 /* Заголовок "Об играх" */
 .games-title {
     font-size: 64px;
     font-weight: 700;
-    font-style: bold;
     line-height: 1;
     color: #ffffff;
     margin: 0;
     padding: 0;
-    font-family: 'Arial Black', 'Arial Bold', sans-serif;
     text-align: left;
 }
 
@@ -178,16 +204,14 @@ body {
     max-width: 1000px;
 }
 
-/* Контейнер для грида с играми */
-.games-grid-container {
-    margin-top: 72px;
-}
+
 
 /* Сетка из 3 колонок */
 .games-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 32px;
+    align-items: stretch;
 }
 
 /* Колонки внутри сетки */
@@ -215,18 +239,15 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    font-size: 24px;
-    color: #000000;
-    font-weight: 600;
-    text-align: left;
     overflow: hidden;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 /* Эффект при наведении на карточку игры */
 .game-card-link:hover .game-card {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
 
@@ -245,7 +266,7 @@ body {
 }
 
 /* Контент игры */
-.game-content {
+.game-card-content {
     padding: 32px;
     width: 100%;
     display: flex;
@@ -271,7 +292,7 @@ body {
 }
 
 /* Заголовок игры */
-.game-title {
+.game-card-title {
     font-size: 32px;
     font-weight: 700;
     line-height: 1.2;
@@ -281,8 +302,18 @@ body {
 }
 
 /* Эффект при наведении на заголовок */
-.game-card-link:hover .game-title {
+.game-card-link:hover .game-card-title {
     color: #333333;
+}
+
+/* Мобильное описание игры (скрыто на десктопе) */
+.game-description-mobile {
+    display: none;
+}
+
+/* Мобильная кнопка "Играть" (скрыто на десктопе) */
+.game-button-mobile {
+    display: none;
 }
 
 /* Первая колонка */
@@ -310,4 +341,260 @@ body {
 
 .game-column-3 .game-card:nth-child(2) {
     height: auto;
+}
+
+/* ========== МОБИЛЬНАЯ ВЕРСИЯ ========== */
+@media (max-width: 768px) {
+    /* Хедер */
+    .header {
+        width: 100%;
+        height: 700px;
+        background-image: url('images/game_header-mobile.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .header-container {
+        padding: 0 20px;
+    }
+    
+    .welcome-container {
+        position: static;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
+        padding: 147px 20px 40px 20px;
+        text-align: center;
+    }
+    
+    /* Заголовок welcome - показываем мобильную версию */
+    .desktop-line {
+        display: none; /* Скрываем десктопные строки */
+    }
+    
+    .mobile-line {
+        display: block; /* Показываем мобильные строки */
+        text-align: center;
+        width: 100%;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+    
+    .welcome-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    
+    /* Текст под заголовком */
+   .welcome-text {
+        font-size: 18px; /* Размер как в оригинальной мобильной версии */
+        font-weight: 400;
+        line-height: 1.4;
+        color: #000000;
+        margin-top: 24px; 
+        max-width: 100%;
+        text-align: center; 
+        
+        /* Ограничение на 3 строки */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+    }
+    
+    .start-button {
+        width: 285px;
+        height: 55px;
+        font-size: 20px;
+        margin: 36px auto 0;
+    }
+    
+    /* Секция игр */
+    .games-section {
+         padding: 48px 20px 0 20px; 
+    }
+    
+    /* Показываем мобильный заголовок "Мини-игры" */
+    .games-title-mobile {
+        display: block;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #ffffff;
+        margin: 0 0 48px 0;
+        padding: 0;
+        text-align: left;
+        width: 100%;
+        max-width: 343px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Скрываем десктопное введение */
+    .games-intro {
+        display: none;
+    }
+    
+    /* Контейнер контента для мобилки */
+    .games-content {
+        width: 100%;
+        max-width: 343px;
+        margin: 0 auto;
+    }
+    
+    .game-column-3 .game-card:nth-child(1) .game-card-title {
+        max-width: 150px;
+        display: block;
+    }
+    
+    /* Звезды - скрываем на мобилках */
+    .star-background,
+    .star-left-big,
+    .star-left-small {
+        display: none;
+    }
+    
+    /* Переупорядочивание карточек */
+    .games-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+          margin-bottom: 9px; 
+    }
+    
+    .game-column-1,
+    .game-column-2,
+    .game-column-3 {
+        display: contents;
+    }
+    
+    /* Порядок для каждой карточки */
+    .game-column-1 > a:nth-child(1) { order: 1; }
+    .game-column-2 > a:nth-child(1) { order: 2; }
+    .game-column-3 > a:nth-child(1) { order: 3; }
+    .game-column-1 > a:nth-child(2) { order: 4; }
+    .game-column-2 > a:nth-child(2) { order: 5; }
+    .game-column-3 > a:nth-child(2) { order: 6; }
+    
+    /* Сбрасываем отступы */
+    .game-card-link,
+    .game-card-link:not(:last-child) {
+        margin-bottom: 0;
+    }
+    
+    /* Стили карточек */
+    .game-card {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 500px;
+    }
+    
+    .game-column {
+        width: 100%;
+    }
+    
+    .game-image {
+        height: 284px;
+    }
+    
+    .game-card-content {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-grow: 1;
+        padding-bottom: 0;
+    }
+    
+    /* Мобильное описание игры */
+    .game-description-mobile {
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #666666;
+        margin-top: 16px;
+        margin-bottom: 32px;
+        text-align: left;
+        max-width: 100%;
+        flex-grow: 1;
+    }
+    
+    /* Мобильная кнопка "Играть" */
+    .game-button-mobile {
+        font-family: Montserrat;
+        display: flex;
+        width: 285px;
+        height: 55px;
+        background-color: #000000;
+        color: #ffffff;
+        border: none;
+        border-radius: 60px;
+        font-size: 16px;
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 32px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+    }
+    
+    .game-button-mobile:hover {
+        background-color: #333333;
+    }
+    
+    /* Бейдж скрываем на мобильной */
+    .game-badge {
+        display: none;
+    }
+    
+    /* Для корректного порядка карточек нужен important */
+    .games-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .game-column-1,
+    .game-column-2,
+    .game-column-3 {
+        display: contents !important;
+    }
+    
+    .game-column-1 > a:nth-child(1) { order: 1 !important; }
+    .game-column-2 > a:nth-child(1) { order: 2 !important; }
+    .game-column-3 > a:nth-child(1) { order: 3 !important; }
+    .game-column-1 > a:nth-child(2) { order: 4 !important; }
+    .game-column-2 > a:nth-child(2) { order: 5 !important; }
+    .game-column-3 > a:nth-child(2) { order: 6 !important; }
+
+  .mobile-footer {
+    background: #BDED35;
+    height: 100px; /* фиксированная высота */
+    font-family: Montserrat;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  box-sizing: border-box;
+    color:#000000
+  }
+  
+  .footer-content p {
+
+    font-size: 12px; /* немного меньше на очень маленьких экранах */
+  }
 }
