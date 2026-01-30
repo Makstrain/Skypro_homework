@@ -34,23 +34,24 @@
                 "Вася": '300',
                 "Петя": '400'
                }
-               const keys = Object.keys(obj);
-           for (let key in obj) {
+              for (let key in obj) {
                console.log(key,obj[key]+"$"); 
-               
+            
                }
                
-               /// Задание 5: Деление
-               console.log("Задание 5");
-               i = 1000;
-               while (i<=1000) {
-                i = i/2;
-                if (i<50) {
-                     console.log("Искомое число = "+i); 
-                     break;
-                }
-               } 
-     
+       /// Задание 6: Пятница
+
+        const year = 2026;
+        const month = 0; // 0 = январь
+        const monthName = "января";
+        console.log("Рассматриваемый месяц " + month+1 + " Год "+ year)
+       for (let day = 1; day <= 31; day++) {
+         const date = new Date(year, month, day);
+         console.log(`День ${day}: ${date.toLocaleDateString('ru-RU', { weekday: 'short' })}`);
+          if(date.getDay() === 5) {
+         console.log(`Сегодня пятница, ${day}-е ${monthName}. Необходимо подготовить отчет`);
+        }
+       }
     </script>
 </body>
 </html>

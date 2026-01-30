@@ -972,12 +972,14 @@ body {
     
     /* Стили карточек */
     .game-card {
-        width: 100%;
+        width: 343px;
         margin: 0 auto;
         min-height: 500px;
         
         /* Для очень маленьких экранов (меньше 400px) */
         @media (max-width: 400px) {
+             width: 100%; /* На очень маленьких - адаптивно */
+            max-width: 343px;
             min-height: 450px;
             border-radius: 20px;
         }
