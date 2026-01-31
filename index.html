@@ -88,7 +88,7 @@
                                             <div class="game-badge">Игра №1</div>
                                             <h3 class="game-card-title">Угадай число</h3>
                                             <p class="game-description-mobile">Попробуй угадать случайное число от 1 до 100.</p>
-                                            <button class="game-button-mobile">Играть!</button>
+                                            <button class="game-button-mobile" onclick="generateNumber()">Играть!</button>
                                         </div>
                                     </article>
                                 </a>
@@ -167,7 +167,7 @@
         <div class="minigame-card-content">
             <h3 class="minigame-card-title">Угадай число</h3>
             <p class="minigame-description">Попробуй угадать случайное <br> число от 1 до 100.</p>
-            <button class="minigame-button">Играть!</button>
+            <button class="minigame-button" onclick="generateNumber()">Играть!</button>
         </div>
         <div class="minigame-image-container">
             <img src="images/minigame1.svg" alt="Игра 1" class="minigame-image">
@@ -243,5 +243,60 @@
      </div>
    </footer>
 </body>
-
+<script>
+function generateNumber() {
+    let playAgain = true;
+    let bestScore = Infinity; // Рекорд минимального количества попыток
+    
+    while (playAgain) {
+        let randomNumber = Math.floor(Math.random() * 101);
+        alert("Привет! Я загадал число от 0 до 100. Угадаешь?");
+        let attempts = 0;
+        
+        while (true) {
+            let userInput = prompt("Введи число от 0 до 100:");
+            
+            if (userInput === null) {
+                alert("Игра окончена!");
+                return;
+            }
+            
+            let userNumber = parseInt(userInput);
+            attempts++;
+            
+            if (isNaN(userNumber)) {
+                alert("Это не число");
+                attempts--;
+                continue;
+            }
+            
+            if (userNumber < 0 || userNumber > 100) {
+                alert("Число должно быть от 0 до 100!");
+                attempts--;
+                continue;
+            }
+            
+            if (userNumber === randomNumber) {
+                // Обновляем рекорд
+                if (attempts < bestScore) {
+                    bestScore = attempts;
+                    alert(`🎊 Новый рекорд! Ты угадал число ${randomNumber} всего за ${attempts} попыток!`);
+                } else {
+                    alert(`🎉 Ура! Ты угадал число ${randomNumber} за ${attempts} попыток.\nТвой рекорд: ${bestScore} попыток`);
+                }
+                break;
+            } else if (userNumber < randomNumber) {
+                alert("Больше! :)");
+            } else {
+                alert("Меньше! :)");
+            }
+        }
+        
+        // Спрашиваем, хочет ли пользователь сыграть еще раз
+        playAgain = confirm(`Сыграем еще? Твой рекорд: ${bestScore} попыток`);
+    }
+    
+    alert(`Спасибо за игру! Твой лучший результат: ${bestScore} попыток`);
+}
+</script>
 </html>
