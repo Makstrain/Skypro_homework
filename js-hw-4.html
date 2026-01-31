@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Задания</title>
+</head>
+<body>
+    <script>
+              /// Задание 1: Привет 2 раза
+                 console.log("Задание 1");
+              for(i=0;i<2;i++)
+              {
+                console.log("Привет");
+              }
+              /// Задание 2: Цифры от 1 до 5
+                console.log("Задание 2");
+              for(i=1;i<6;i++)
+              {
+                console.log(i);
+              }  
+
+               /// Задание 3: Цифры от 7 до 22
+               console.log("Задание3");
+                for(i=7;i<23;i++)
+              {
+                
+                console.log(i);
+              }
+                /// Задание 4: Ключ значение
+               console.log("Задание 4");
+               const obj = {
+                "Коля":'200',
+                "Вася": '300',
+                "Петя": '400'
+               }
+              for (let key in obj) {
+               console.log(key,obj[key]+"$"); 
+            
+               }
+               
+         /// Задание 5: Деление
+             let num=0;
+               console.log("Задание 5");
+               i = 1000;
+               while (i>50) {
+                i = i/2;
+                num++;
+               }
+              console.log("Искомое число = "+i);              
+              console.log("Количество проходов "+num); 
+       /// Задание 6: Пятница
+
+        const year = 2026;
+        const month = 0; // 0 = январь
+        const monthName = "января";
+        console.log("Рассматриваемый месяц " + month+1 + " Год "+ year)
+       for (let day = 1; day <= 31; day++) {
+         const date = new Date(year, month, day);
+         console.log(`День ${day}: ${date.toLocaleDateString('ru-RU', { weekday: 'short' })}`);
+          if(date.getDay() === 5) {
+         console.log(`Сегодня пятница, ${day}-е ${monthName}. Необходимо подготовить отчет`);
+        }
+       }
+    </script>
+</body>
+</html>
