@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Задания</title>
+</head>
+<body>
+    <script>
+        /// Задание 1
+         console.log("Задание1");
+        function maximum(number1,number2)
+        {
+          if (number1<=number2) {
+            return number1;
+          } else {
+            return number2;
+          }
+          }
+        console.log("Минимальное число " + maximum(5,5));
+
+         /// Задание 2
+            console.log("Задание2");
+            
+            function even(numb)
+            {
+            numb = numb % 2
+            if (numb==0)
+                {
+                return("-число чётное ");
+                } else {
+                    return("-число нечётное  ");
+                }
+            }
+            let userNumber = 8;
+            console.log(`Число ${userNumber} - ${even(userNumber)}`);
+
+      /// Задание 3 Квадрат числа
+      console.log("Задание3");
+       function square1(num)
+        {
+        
+             console.log("Квадрат числа 1-й вариант функции = " + (num * num));
+        }
+       square1(6)
+
+      function square2(num)
+        {
+            return num * num
+        }
+        let userNum = 8;
+        console.log("Квадрат числа для 2-го варианта функции = " + square2(userNum ));
+            
+     /// Задание 4
+  
+            let age;
+            do {
+                age = prompt("Задание 4: Сколько тебе лет?");
+                if (isNaN(age) || age < 0 || age === "" || age === null) {
+                    alert("Вы ввели неправильное значение");
+                }
+            } while (isNaN(age) || age < 0 || age === "" || age === null);
+
+            hi(age);
+
+            function hi(age) {
+                if (age < 13) {
+                    alert("Привет друг");
+                } else {
+                    alert("Добро пожаловать!");
+                }
+            }
+
+      console.log("Задание5"); 
+
+        function multiplyNumbers(num1, num2) 
+        {
+            const n1 = Number(num1);
+            const n2 = Number(num2);
+            
+            // Проверяем преобразованные значения
+            if (isNaN(n1) || isNaN(n2)) {
+                return 'Одно или оба значения не являются числом';
+            }
+            
+            // Возвращаем произведение
+            return n1 * n2;
+        }
+
+        // Примеры использования:
+        console.log(`multiplyNumbers(5, 3) = ${multiplyNumbers(5, 3)}`);          // 15
+        console.log(`multiplyNumbers(-2, 7) = ${multiplyNumbers(-2, 7)}`);       // -14
+        console.log(`multiplyNumbers(0, 10) = ${multiplyNumbers(0, 10)}`);       // 0
+        console.log(`multiplyNumbers(2.5, 4) = ${multiplyNumbers(2.5, 4)}`);     // 10
+        console.log(`multiplyNumbers("5", "3") = ${multiplyNumbers("5", "3")}`); // 15
+        console.log(`multiplyNumbers("abc", 3) = ${multiplyNumbers("abc", 3)}`); // 'Одно или оба значения не являются числом'
+        console.log(`multiplyNumbers(null, 5) = ${multiplyNumbers(null, 5)}`);   // 0
+       
+
+            // Задание 6 - куб 
+            function cube(num, showAlert = false) {
+                // Проверяем, является ли введенное значение NaN (не числом)
+                if (isNaN(Number(num))) {
+                    if (showAlert) {
+                        alert("Переданный параметр не является числом");
+                    }
+                    return "Переданный параметр не является числом";
+                } else {
+                    const result = Math.pow(Number(num), 3);
+                    if (showAlert) {
+                        alert(`n в кубе равняется ${result}`);
+                    }
+                    return result;
+                }
+            } 
+
+            let userInput;
+            do {
+                userInput = prompt("Задание6: Пользователь, введи число");
+                if (isNaN(Number(userInput)) || userInput === "" || userInput === null) {
+                    alert("Переданный параметр не является числом");
+                }
+            } while (isNaN(Number(userInput)) || userInput === "" || userInput === null);
+
+            cube(userInput, true); 
+
+
+
+            // Тестирование ..
+            console.log("=== Тестирование функции cube с числами от 0 до 10 ===");
+            for (let i = 0; i <= 10; i++) {
+                console.log(`cube(${i}) = ${cube(i)}`);
+            }
+
+            // Дополнительные тесты
+            console.log("\n=== Дополнительные тесты ===");
+            console.log(`cube("abc") = ${cube("abc")}`);
+            console.log(`cube(null) = ${cube(null)}`);
+            console.log(`cube(undefined) = ${cube(undefined)}`);
+            console.log(`cube("5") = ${cube("5")}`);
+            console.log(`cube(2.5) = ${cube(2.5)}`);
+            console.log(`cube(-3) = ${cube(-3)}`);
+
+              // Задание 7 - Circle
+       // Объект circle1
+        console.log("Задание7");
+            const circle1 = {
+                radius: 5,
+                    getArea() {
+                    return Math.PI * this.radius * this.radius;
+                },
+                
+                getPerimeter() {
+                    return 2 * Math.PI * this.radius;
+                }
+            };
+
+      // Объект circle2 (отдельный объект!)
+            const circle2 = {
+                radius: 10,
+                getArea() {
+                    return Math.PI * this.radius * this.radius;
+                },
+                
+                getPerimeter() {
+                    return 2 * Math.PI * this.radius;
+                }
+            };
+
+            // Проверка работы обоих объектов
+            console.log("=== circle1 ===");
+            console.log("Радиус:", circle1.radius);
+            console.log("Площадь:", circle1.getArea());
+            console.log("Периметр:", circle1.getPerimeter());
+
+            console.log("\n=== circle2 ===");
+            console.log("Радиус:", circle2.radius);
+            console.log("Площадь:", circle2.getArea());
+            console.log("Периметр:", circle2.getPerimeter());
+    </script>
+</body>
+</html>
