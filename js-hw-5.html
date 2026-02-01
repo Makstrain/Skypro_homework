@@ -11,43 +11,45 @@
          console.log("Задание1");
         function maximum(number1,number2)
         {
-          if (number1>=number2) {
+          if (number1<=number2) {
             return number1;
           } else {
             return number2;
           }
           }
-        console.log("Максимальное число " + maximum(5,5));
+        console.log("Минимальное число " + maximum(5,5));
 
          /// Задание 2
-          console.log("Задание2");
-        function even(numb)
-        {
-        numb = numb % 2
-        if (numb==0)
-        {
-          console.log("Число чётное " );
-        } else {
-        console.log("Число нечётное " );
-        }
-      }
-      even(8);
+            console.log("Задание2");
+            
+            function even(numb)
+            {
+            numb = numb % 2
+            if (numb==0)
+                {
+                return("-число чётное ");
+                } else {
+                    return("-число нечётное  ");
+                }
+            }
+            let userNumber = 8;
+            console.log(`Число ${userNumber} - ${even(userNumber)}`);
 
       /// Задание 3 Квадрат числа
       console.log("Задание3");
-      let num=5
-      function square1(numb)
+       function square1(num)
         {
         
-             console.log("Квадрат числа " + (num * num));
+             console.log("Квадрат числа 1-й вариант функции = " + (num * num));
         }
        square1(6)
 
-      function square2(numb)
+      function square2(num)
         {
             return num * num
         }
-        console.log("Квадрат числа для 2-го варианта функции " + square2(num));
+        let userNum = 8;
+        console.log("Квадрат числа для 2-го варианта функции = " + square2(userNum ));
             
      /// Задание 4
   
@@ -69,22 +71,30 @@
                 }
             }
 
-            /// Задание 5   
-               console.log("Задание5"); 
-            function multiplyNumbers(num1, num2) {
-             if (isNaN(Number(num1)) || isNaN(Number(num2))) {
-             return 'Одно или оба значения не являются числом';
+      console.log("Задание5"); 
+
+        function multiplyNumbers(num1, num2) 
+        {
+            const n1 = Number(num1);
+            const n2 = Number(num2);
+            
+            // Проверяем преобразованные значения
+            if (isNaN(n1) || isNaN(n2)) {
+                return 'Одно или оба значения не являются числом';
             }
-             return num1 * num2;
-            }
-      // Примеры использования:
-            console.log(`multiplyNumbers(5, 3) = ${multiplyNumbers(5, 3)}`);          // 15
-            console.log(`multiplyNumbers(-2, 7) = ${multiplyNumbers(-2, 7)}`);       // -14
-            console.log(`multiplyNumbers(0, 10) = ${multiplyNumbers(0, 10)}`);       // 0
-            console.log(`multiplyNumbers(2.5, 4) = ${multiplyNumbers(2.5, 4)}`);     // 10
-            console.log(`multiplyNumbers("5", "3") = ${multiplyNumbers("5", "3")}`); // 15
-            console.log(`multiplyNumbers("abc", 3) = ${multiplyNumbers("abc", 3)}`); // 'Одно или оба значения не являются числом'
-            console.log(`multiplyNumbers(null, 5) = ${multiplyNumbers(null, 5)}`);   // 0
+            
+            // Возвращаем произведение
+            return n1 * n2;
+        }
+
+        // Примеры использования:
+        console.log(`multiplyNumbers(5, 3) = ${multiplyNumbers(5, 3)}`);          // 15
+        console.log(`multiplyNumbers(-2, 7) = ${multiplyNumbers(-2, 7)}`);       // -14
+        console.log(`multiplyNumbers(0, 10) = ${multiplyNumbers(0, 10)}`);       // 0
+        console.log(`multiplyNumbers(2.5, 4) = ${multiplyNumbers(2.5, 4)}`);     // 10
+        console.log(`multiplyNumbers("5", "3") = ${multiplyNumbers("5", "3")}`); // 15
+        console.log(`multiplyNumbers("abc", 3) = ${multiplyNumbers("abc", 3)}`); // 'Одно или оба значения не являются числом'
+        console.log(`multiplyNumbers(null, 5) = ${multiplyNumbers(null, 5)}`);   // 0
        
 
             // Задание 6 - куб 
