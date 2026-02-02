@@ -114,7 +114,7 @@
                                             <div class="game-badge">Игра №2</div>
                                             <h3 class="game-card-title">Простая арифметика</h3>
                                             <p class="game-description-mobile">Попробуй решить простые арифметические задачи.</p>
-                                            <button class="game-button-mobile">Играть!</button>
+                                            <button class="game-button-mobile" onclick="game2()">Играть!</button>
                                         </div>
                                     </article>
                                 </a>
@@ -179,7 +179,7 @@
         <div class="minigame-card-content">
             <h3 class="minigame-card-title">Простая <br>арифметика</h3>
             <p class="minigame-description">Попробуй решить простые <br> арифметические задачи.</p>
-            <button class="minigame-button">Играть!</button>
+             <button class="minigame-button" onclick="game2()">Играть!</button>
         </div>
         <div class="minigame-image-container">
             <img src="images/minigame2.svg" alt="Игра 2" class="minigame-image">
@@ -298,5 +298,88 @@ function generateNumber() {
     
     alert(`Спасибо за игру! Твой лучший результат: ${bestScore} попыток`);
 }
+
+     function game2() {
+            // Функции
+            // Функция получения случайного числа в заданном диапазоне
+            function getNumArray(max, min) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+           // Функция получения случайной арифметической операции
+            function getRandomOperation() {
+                const operations = ['+', '-', '*', '/'];
+                return operations[Math.floor(Math.random() * operations.length)];
+            }
+
+            function playGame() {
+                
+                // Выбор уровня сложности
+                let level;
+                
+                while (true) {
+                    level = prompt("Выбери уровень сложности:\nL - Low (0-10)\nM - Middle (0-100)\nH - High (0-1000)\nX - Выйти из игры\n\nВведи букву:");
+                    
+                    if (level === null || level.toUpperCase() === 'X') {
+                        console.log("Выход из игры");
+                        return false; // выходим из игры
+                    }
+                    
+                    level = level.toUpperCase().trim();
+                    
+                    if (['L', 'M', 'H'].includes(level)) {
+                        break;
+                    }
+                    
+                    alert("Неверный ввод! Введи L, M, H или X");
+                }
+                
+                // Определение диапазона
+                let range;
+                switch(level) {
+                    case 'L': range = 10; break;
+                    case 'M': range = 100; break;
+                    case 'H': range = 1000; break;
+                }
+                
+                // Основная логика игры
+                const operationsMap = {
+                    '+': (a, b) => a + b,
+                    '-': (a, b) => a - b,
+                    '*': (a, b) => a * b,
+                    '/': (a, b) => b !== 0 ? a / b : "Ошибка: деление на 0"
+                };
+                
+                let number1 = getNumArray(0, range);
+                let number2 = getNumArray(0, range);
+                let operation = getRandomOperation();
+                let result = operationsMap[operation](number1, number2);
+                
+                console.log(`Уровень: ${level}, Задача: ${number1} ${operation} ${number2}`);
+                
+                let answer = prompt(`Реши задачу: ${number1} ${operation} ${number2}`);
+                
+                if (answer === null) {
+                    return true; // возвращаемся в меню
+                }
+                
+                const userNumber = Number(answer);
+                
+                if (userNumber === result) {
+                    alert("✅ Правильно!");
+                } else {
+                    alert(`❌ Неправильно! Ответ: ${result}`);
+                }
+                
+                return true; // продолжаем играть
+            }
+
+            // Главный цикл
+            let continuePlaying = true;
+            alert("Игра 2: Простая арифметика");
+            while (continuePlaying) {
+                continuePlaying = playGame();
+            }
+
+            alert("Игра завершена. До свидания!");}
 </script>
 </html>
