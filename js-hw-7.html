@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Задания</title>
+</head>
+<body>
+    <script>
+        // Задание 1
+        console.log("Задание 1"); 
+        let str = 'js';
+        console.log("Исходная строка: " + str);
+        console.log("Результирующая строка: " + str.toUpperCase());
+
+        // Задание 2
+        console.log("Задание 2"); 
+        const arrayString = [
+            'поезд на Дальий Восток',
+            'самолет в Ченнай',
+            "пароход на Шри-Ланку",
+            "поезд на Ленинград"
+        ];
+
+        const stroka = 'поезд';
+
+        function filterString(arrStr, str) {
+            let result = [];
+            arrStr.forEach(element => {
+                if (element.toLowerCase().startsWith(str.toLowerCase())) {
+                    result.push(element);
+                }
+            });
+            return result;
+        }
+
+        const filtered = filterString(arrayString, stroka);
+        console.log(filtered);
+         
+        // Задание 3
+        console.log("Задание 3"); 
+        let number = 32.58884;
+        
+        // 1. Округлить до меньшего целого
+        let roundedDown = Math.floor(number);
+        console.log("До меньшего целого:", roundedDown); 
+
+        // 2. Округлить до большего целого
+        let roundedUp = Math.ceil(number);
+        console.log("До большего целого:", roundedUp); 
+
+        // 3. Округлить до ближайшего целого
+        let roundedNearest = Math.round(number);
+        console.log("До ближайшего целого:", roundedNearest); 
+
+        // Задание 4 
+        console.log("Задание 4"); 
+        const Numbers = [
+            52, 53, 49, 77, 21, 32
+        ];
+        
+        let result = Math.min(...Numbers);
+        console.log("Наименьшее из чисел = " + result); 
+        
+        result = Math.max(...Numbers);
+        console.log("Наибольшее из чисел = " + result); 
+               
+        // Задание 5
+        console.log("Задание 5"); 
+        const randomNum = Math.floor(Math.random() * 10) + 1;
+        console.log("Случайное число = " + randomNum);
+
+        // Задание 6
+        console.log("Задание 6"); 
+        function randomNumbers(num) {
+            let arrayNum = [];
+            const length = Math.floor(num / 2);
+            
+            for (let i = 0; i < length; i++) {
+                arrayNum.push(Math.floor(Math.random() * (num + 1)));
+            }
+            
+            return arrayNum;
+        }
+
+        const numbers1 = randomNumbers(5);
+        console.log(numbers1);
+
+        // Проверка с другими числами
+        console.log(randomNumbers(10));
+        console.log(randomNumbers(7));
+        console.log(randomNumbers(0));
+
+        // Задание 7
+        console.log("Задание 7"); 
+        function getRandomInRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        let min = 10;
+        let max = 1000;
+        
+        console.log("Генерируем случайное число между " + min + " " + max);
+        console.log("Cлучайное число равно " + getRandomInRange(min, max));
+
+        // Задание 8
+        console.log("Задание 8"); 
+        let currentDate = new Date();
+        console.log("Текущая дата : " + currentDate);
+            
+        // Задание 9
+        console.log("Задание 9"); 
+        let newDate = new Date(currentDate); 
+        newDate.setDate(currentDate.getDate() + 73); 
+        console.log("Текущая дата +73 =  " + newDate);
+             
+        // Задание 10
+        console.log("Задание 10");
+        
+        function formatDateToRussian(currentDate) {
+            const months = [
+                'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+                'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+            ];
+            
+            const days = [
+                'воскресенье', 'понедельник', 'вторник', 'среда',
+                'четверг', 'пятница', 'суббота'
+            ];
+            
+            console.log("Текущая дата : " + currentDate);
+            
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            const dayOfWeek = currentDate.getDay();
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
+            const seconds = currentDate.getSeconds();
+          
+            let data = "Дата:" + day + " " + months[month] + " " + year + "- это " + dayOfWeek + ".";
+            let time = "Время:" + hours + ":" + minutes + ":" + seconds;
+            
+            return `${data} \n${time}`;
+        }
+        
+        console.log(formatDateToRussian(currentDate));
+    </script>
+</body>
+</html>
