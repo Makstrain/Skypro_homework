@@ -125,7 +125,7 @@
                                             <div class="game-badge">Игра №5</div>
                                             <h3 class="game-card-title">Простая викторина</h3>
                                             <p class="game-description-mobile">Отвечай на вопросы викторины с вариантами ответов.</p>
-                                            <button class="game-button-mobile">Играть!</button>
+                                            <button class="game-button-mobile" onclick="game5()">Играть!</button>
                                         </div>
                                     </article>
                                 </a>
@@ -140,7 +140,7 @@
                                             <div class="game-badge">Игра №3</div>
                                             <h3 class="game-card-title">Переверни текст</h3>
                                             <p class="game-description-mobile">Попробуй ввести текст, который будет перевернут.</p>
-                                            <button class="game-button-mobile">Играть!</button>
+                                            <button class="game-button-mobile" onclick="game3()">Играть!</button>
                                         </div>
                                     </article>
                                 </a>
@@ -191,7 +191,7 @@
         <div class="minigame-card-content">
             <h3 class="minigame-card-title">Переверни текст</h3>
             <p class="minigame-description">Попробуй ввести текст, <br> который будет перевернут.</p>
-            <button class="minigame-button">Играть!</button>
+            <button class="minigame-button" onclick="game3()">Играть!</button>
         </div>
         <div class="minigame-image-container">
             <img src="images/minigame3.svg" alt="Игра 3" class="minigame-image">
@@ -215,7 +215,7 @@
         <div class="minigame-card-content">
             <h3 class="minigame-card-title">Простая <br>викторина</h3>
             <p class="minigame-description">Отвечай на вопросы викторины <br> с вариантами ответов.</p>
-            <button class="minigame-button">Играть!</button>
+            <button class="minigame-button" onclick="game5()">Играть!</button>
         </div>
         <div class="minigame-image-container">
             <img src="images/minigame5.svg" alt="Игра 5" class="minigame-image">
@@ -381,5 +381,93 @@ function generateNumber() {
             }
 
             alert("Игра завершена. До свидания!");}
+
+
+
+
+function game3() {
+    alert("Игра №3. Переверни текст");
+    while(true) {
+        const text = prompt("Введи текст: ");
+        
+        if (text === null) {
+            alert("Игра окончена!");
+            return;
+        }
+        
+        if (text.trim() === "") {
+            alert("Вы ничего не ввели");
+            continue;
+        }
+        
+       const array = text.split('');
+       const reversedArray = array.slice().reverse();
+       const reversedString = reversedArray.join('');
+       alert(reversedString);   
+        
+        if(!confirm("Сыграем еще?")) {
+            alert("Игра окончена!");
+            return;
+        }
+    }
+}    
+
+// Игра №5 Викторина
+const quiz = [
+    {
+        question: "Какой цвет неба?",
+        options: ["1. Красный", "2. Синий", "3. Зеленый"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько дней в неделе?",
+        options: ["1. Шесть", "2. Семь", "3. Восемь"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько у человека пальцев на одной руке?",
+        options: ["1. Четыре", "2. Пять", "3. Шесть"],
+        correctAnswer: 2
+    }
+];
+
+function game5() {
+    alert("Игра №4. Викторина");
+    let correctAnswer = 0, i = 0;
+    
+    while(i < 3) {
+        let answer = prompt(quiz[i].question + "\n" + quiz[i].options.join("\n") + "\nУкажите номер ответа");
+        
+        // 1. Проверка на отмену 
+        if (answer === null) {
+            alert("Игра окончена");
+            break;
+        }
+        
+        // 2. Проверка на пустой ввод
+        if (answer.trim() === "") {
+            alert("Вы ничего не ввели");
+            continue;
+        }
+        
+        // 3. Проверка на ввод числа
+        if (isNaN(answer)) {
+            alert("Введите число");
+            continue;
+        }
+        
+        // 4. Проверка правильного ответа
+        if (Number(answer) === quiz[i].correctAnswer) {
+            correctAnswer++;
+            alert("Ответ правильный! Молодец!");
+        } else {
+            alert("Не угадал :(");
+        }
+        
+        i++;
+    }
+    
+    alert(`Игра окончена! Правильных ответов: ${correctAnswer} из 3`);
+}
 </script>
 </html>
