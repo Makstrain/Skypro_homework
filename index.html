@@ -12,115 +12,534 @@
 <body>
     <header class="header">
         <div class="header-container">
-            <article class="welcome-container">
+            <div class="welcome-container">
+                <!-- Один заголовок h1 с разными версиями -->
                 <h1 class="welcome-title">
-                    <span class="welcome-title-line1">Добро пожаловать</span>
-                    <span class="welcome-title-line2">на мой сайт мини-игр</span>
+                    <!-- Десктоп: 2 строки -->
+                    <span class="desktop-line desktop-line-1">Добро пожаловать</span>
+                    <span class="desktop-line desktop-line-2">на мой сайт мини-игр</span>
+                    
+                    <!-- Мобилка: 4 строки -->
+                    <span class="mobile-line mobile-line-1">Добро</span>
+                    <span class="mobile-line mobile-line-2">пожаловать</span>
+                    <span class="mobile-line mobile-line-3">на мой сайт</span>
+                    <span class="mobile-line mobile-line-4">мини-игр</span>
                 </h1>
+                
                 <p class="welcome-text">Тебе предстоит пройти несколько увлекательных игр. Если готов, нажимай "Поехали" и приступай</p>
-                <button class="start-button">Поехали!</button>
-            </article>
+                <a href="#games-section" class="start-button">Поехали!</a>
+            </div>
         </div>
     </header>
     
     <main>
-        <div class="games-section">
-            <!-- Первая звезда справа -->
+        <section class="games-section" id="games-section">
+            <!-- Декоративные звезды -->
             <div class="star-background">
                 <img src="images/star.svg" alt="Звезда">
             </div>
             
-            <!-- Вторая звезда слева от основного контейнера -->
             <div class="star-left-big">
                 <img src="images/star-left-big.svg" alt="Большая звезда слева">
             </div>
             
-            <!-- Третья маленькая звезда слева -->
+            
             <div class="star-left-small">
                 <img src="images/star-left-small.svg" alt="Маленькая звезда слева">
             </div>
+
+              
+               <div class="star-right-middle-1">
+                <img src="images/star-middle.svg" alt="Средняя звезда справа">
+            </div>
+            
+            
+            <div class="star-right-small-1">
+                <img src="images/star-left-small.svg" alt="Маленькая звезда справа">
+            </div>
+
+            
             
             <div class="games-container">
-                <article>
-                    <h2 class="games-title">Об играх</h2>
-                    <p class="games-description">
-                        В моей коллекции представлено 6 игр на разные темы.<br>
-                        Игры несложные — в них может поиграть каждый.<br>
-                        Все игры доступны для пользования.
-                    </p>
+                <!-- Мобильный заголовок для секции игр (виден только на мобилках) -->
+                <h2 class="games-title-mobile">Мини-игры</h2>
+                
+                <!-- Основной контент раздела -->
+                <div class="games-content">
+                    <!-- Десктопный заголовок и описание (скрыты на мобилках) -->
+                    <div class="games-intro">
+                        <h2 class="games-title">Об играх</h2>
+                        <p class="games-description">
+                            В моей коллекции представлено 6 игр на разные темы.<br>
+                            Игры несложные — в них может поиграть каждый.<br>
+                            Все игры доступны для пользования.
+                        </p>
+                    </div>
                     
+                    <!-- Сетка с играми -->
                     <div class="games-grid-container">
                         <div class="games-grid">
                             <!-- Колонка 1 -->
                             <div class="game-column game-column-1">
-                                <a href="#" class="game-card-link">
-                                    <div class="game-card">
+                                <a href="#game1" class="game-card-link">
+                                    <article class="game-card">
                                         <img src="images/game1.svg" alt="Игра 1" class="game-image">
-                                        <div class="game-content">
+                                        <div class="game-card-content">
                                             <div class="game-badge">Игра №1</div>
-                                            <h3 class="game-title">Угадай число</h3>
+                                            <h3 class="game-card-title">Угадай число</h3>
+                                            <p class="game-description-mobile">Попробуй угадать случайное число от 1 до 100.</p>
+                                            <button class="game-button-mobile" onclick="generateNumber()">Играть!</button>
                                         </div>
-                                    </div>
+                                    </article>
                                 </a>
-                                <a href="#" class="game-card-link">
-                                    <div class="game-card">
-                                        <img src="images/game4.svg" alt="Игра 4" class="game-image">
-                                        <div class="game-content">
+                                <a href="#game4" class="game-card-link">
+                                    <article class="game-card">
+                                        <img src="images/game4.png" alt="Игра 4" class="game-image">
+                                        <div class="game-card-content">
                                             <div class="game-badge">Игра №4</div>
-                                            <h3 class="game-title">Камень, ножницы, бумага</h3>
+                                            <h3 class="game-card-title">Камень, ножницы,<br> бумага</h3>
+                                            <p class="game-description-mobile">Сыграй в популярную игру против компьютера.</p>
+                                            <button class="game-button-mobile" onclick="game4()">Играть!</button>
                                         </div>
-                                    </div>
+                                    </article>
                                 </a>
                             </div>
                             
                             <!-- Колонка 2 -->
                             <div class="game-column game-column-2">
-                                <a href="#" class="game-card-link">
-                                    <div class="game-card">
+                                <a href="#game2" class="game-card-link">
+                                    <article class="game-card">
                                         <img src="images/game2.svg" alt="Игра 2" class="game-image">
-                                        <div class="game-content">
+                                        <div class="game-card-content">
                                             <div class="game-badge">Игра №2</div>
-                                            <h3 class="game-title">Простая арифметика</h3>
+                                            <h3 class="game-card-title">Простая арифметика</h3>
+                                            <p class="game-description-mobile">Попробуй решить простые арифметические задачи.</p>
+                                            <button class="game-button-mobile" onclick="game2()">Играть!</button>
                                         </div>
-                                    </div>
+                                    </article>
                                 </a>
-                                <a href="#" class="game-card-link">
-                                    <div class="game-card">
+                                <a href="#game5" class="game-card-link">
+                                    <article class="game-card">
                                         <img src="images/game5.svg" alt="Игра 5" class="game-image">
-                                        <div class="game-content">
+                                        <div class="game-card-content">
                                             <div class="game-badge">Игра №5</div>
-                                            <h3 class="game-title">Простая викторина</h3>
+                                            <h3 class="game-card-title">Простая викторина</h3>
+                                            <p class="game-description-mobile">Отвечай на вопросы викторины с вариантами ответов.</p>
+                                            <button class="game-button-mobile" onclick="game5()">Играть!</button>
                                         </div>
-                                    </div>
+                                    </article>
                                 </a>
                             </div>
                             
                             <!-- Колонка 3 -->
                             <div class="game-column game-column-3">
-                                <a href="#" class="game-card-link">
-                                    <div class="game-card">
+                                <a href="#game3" class="game-card-link">
+                                    <article class="game-card">
                                         <img src="images/game3.svg" alt="Игра 3" class="game-image">
-                                        <div class="game-content">
+                                        <div class="game-card-content">
                                             <div class="game-badge">Игра №3</div>
-                                            <h3 class="game-title">Переверни текст</h3>
+                                            <h3 class="game-card-title">Переверни текст</h3>
+                                            <p class="game-description-mobile">Попробуй ввести текст, который будет перевернут.</p>
+                                            <button class="game-button-mobile" onclick="game3()">Играть!</button>
                                         </div>
-                                    </div>
+                                    </article>
                                 </a>
-                                <a href="#" class="game-card-link">
-                                    <div class="game-card">
+                                <a href="#game6" class="game-card-link">
+                                    <article class="game-card">
                                         <img src="images/game6.svg" alt="Игра 6" class="game-image">
-                                        <div class="game-content">
+                                        <div class="game-card-content">
                                             <div class="game-badge">Игра №6</div>
-                                            <h3 class="game-title">Генератор случайных цветов</h3>
+                                            <h3 class="game-card-title">Генератор случайных цветов</h3>
+                                            <p class="game-description-mobile">Игра, в которой при клике на кнопку фон страницы меняется на случайный.</p>
+                                            <button class="game-button-mobile">Играть!</button>
                                         </div>
-                                    </div>
+                                    </article>
                                 </a>
                             </div>
                         </div>
                     </div>
-                </article>
-            </div>
+
+<div class="minigames-container">
+    <h2 class="minigames-title">Мини-игры</h2>
+    
+    <!-- Игра 1 -->
+     <article class="minigame-card" id="game1">
+        <div class="minigame-card-content">
+            <h3 class="minigame-card-title">Угадай число</h3>
+            <p class="minigame-description">Попробуй угадать случайное <br> число от 1 до 100.</p>
+            <button class="minigame-button" onclick="generateNumber()">Играть!</button>
         </div>
+        <div class="minigame-image-container">
+            <img src="images/minigame1.svg" alt="Игра 1" class="minigame-image">
+        </div>
+    </article>
+    
+    <!-- Игра 2 -->
+     <article class="minigame-card" id="game2">
+        <div class="minigame-card-content">
+            <h3 class="minigame-card-title">Простая <br>арифметика</h3>
+            <p class="minigame-description">Попробуй решить простые <br> арифметические задачи.</p>
+             <button class="minigame-button" onclick="game2()">Играть!</button>
+        </div>
+        <div class="minigame-image-container">
+            <img src="images/minigame2.svg" alt="Игра 2" class="minigame-image">
+        </div>
+    </article>
+    
+    <!-- Игра 3 -->
+     <article class="minigame-card" id="game3">
+        <div class="minigame-card-content">
+            <h3 class="minigame-card-title">Переверни текст</h3>
+            <p class="minigame-description">Попробуй ввести текст, <br> который будет перевернут.</p>
+            <button class="minigame-button" onclick="game3()">Играть!</button>
+        </div>
+        <div class="minigame-image-container">
+            <img src="images/minigame3.svg" alt="Игра 3" class="minigame-image">
+        </div>
+    </article>
+    
+    <!-- Игра 4 -->
+     <article class="minigame-card" id="game4">
+        <div class="minigame-card-content">
+            <h3 class="minigame-card-title">Камень, <br>ножницы,<br> бумага</h3>
+            <p class="minigame-description">Сыграй в популярную игру <br> против компьютера.</p>
+            <button class="minigame-button" onclick="game4()">Играть!</button>
+        </div>
+        <div class="minigame-image-container">
+            <img src="images/minigame4.png" alt="Игра 4" class="minigame-image">
+        </div>
+    </article>
+    
+    <!-- Игра 5 -->
+     <article class="minigame-card" id="game5">
+        <div class="minigame-card-content">
+            <h3 class="minigame-card-title">Простая <br>викторина</h3>
+            <p class="minigame-description">Отвечай на вопросы викторины <br> с вариантами ответов.</p>
+            <button class="minigame-button" onclick="game5()">Играть!</button>
+        </div>
+        <div class="minigame-image-container">
+            <img src="images/minigame5.svg" alt="Игра 5" class="minigame-image">
+        </div>
+    </article>
+    
+    <!-- Игра 6 -->
+     <article class="minigame-card" id="game6">
+        <div class="minigame-card-content">
+            <h3 class="minigame-card-title">Генератор <br>случайных <br>цветов</h3>
+            <p class="minigame-description">При клике на кнопку фон страницы <br> меняется на случайный цвет.</p>
+            <button class="minigame-button">Играть!</button>
+        </div>
+        <div class="minigame-image-container">
+            <img src="images/minigame6.png" alt="Игра 6" class="minigame-image">
+        </div>
+    </article>
+</div>
+            </div>
+        </section>
     </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>Все права защищены</p>
+     </div>
+   </footer>
 </body>
+<script>
+function generateNumber() {
+    let playAgain = true;
+    let bestScore = Infinity; // Рекорд минимального количества попыток
+    
+    while (playAgain) {
+        let randomNumber = Math.floor(Math.random() * 101);
+        alert("Привет! Я загадал число от 0 до 100. Угадаешь?");
+        let attempts = 0;
+        
+        while (true) {
+            let userInput = prompt("Введи число от 0 до 100:");
+            
+            if (userInput === null) {
+                alert("Игра окончена!");
+                return;
+            }
+            
+            let userNumber = parseInt(userInput);
+            attempts++;
+            
+            if (isNaN(userNumber)) {
+                alert("Это не число");
+                attempts--;
+                continue;
+            }
+            
+            if (userNumber < 0 || userNumber > 100) {
+                alert("Число должно быть от 0 до 100!");
+                attempts--;
+                continue;
+            }
+            
+            if (userNumber === randomNumber) {
+                // Обновляем рекорд
+                if (attempts < bestScore) {
+                    bestScore = attempts;
+                    alert(`🎊 Новый рекорд! Ты угадал число ${randomNumber} всего за ${attempts} попыток!`);
+                } else {
+                    alert(`🎉 Ура! Ты угадал число ${randomNumber} за ${attempts} попыток.\nТвой рекорд: ${bestScore} попыток`);
+                }
+                break;
+            } else if (userNumber < randomNumber) {
+                alert("Больше! :)");
+            } else {
+                alert("Меньше! :)");
+            }
+        }
+        
+        // Спрашиваем, хочет ли пользователь сыграть еще раз
+        playAgain = confirm(`Сыграем еще? Твой рекорд: ${bestScore} попыток`);
+    }
+    
+    alert(`Спасибо за игру! Твой лучший результат: ${bestScore} попыток`);
+}
+
+     function game2() {
+            // Функции
+            // Функция получения случайного числа в заданном диапазоне
+            function getNumArray(max, min) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+           // Функция получения случайной арифметической операции
+            function getRandomOperation() {
+                const operations = ['+', '-', '*', '/'];
+                return operations[Math.floor(Math.random() * operations.length)];
+            }
+
+            function playGame() {
+                
+                // Выбор уровня сложности
+                let level;
+                
+                while (true) {
+                    level = prompt("Выбери уровень сложности:\nL - Low (0-10)\nM - Middle (0-100)\nH - High (0-1000)\nX - Выйти из игры\n\nВведи букву:");
+                    
+                    if (level === null || level.toUpperCase() === 'X') {
+                        console.log("Выход из игры");
+                        return false; // выходим из игры
+                    }
+                    
+                    level = level.toUpperCase().trim();
+                    
+                    if (['L', 'M', 'H'].includes(level)) {
+                        break;
+                    }
+                    
+                    alert("Неверный ввод! Введи L, M, H или X");
+                }
+                
+                // Определение диапазона
+                let range;
+                switch(level) {
+                    case 'L': range = 10; break;
+                    case 'M': range = 100; break;
+                    case 'H': range = 1000; break;
+                }
+                
+                // Основная логика игры
+                const operationsMap = {
+                    '+': (a, b) => a + b,
+                    '-': (a, b) => a - b,
+                    '*': (a, b) => a * b,
+                    '/': (a, b) => b !== 0 ? a / b : "Ошибка: деление на 0"
+                };
+                
+                let number1 = getNumArray(0, range);
+                let number2 = getNumArray(0, range);
+                let operation = getRandomOperation();
+                let result = operationsMap[operation](number1, number2);
+                
+                console.log(`Уровень: ${level}, Задача: ${number1} ${operation} ${number2}`);
+                
+                let answer = prompt(`Реши задачу: ${number1} ${operation} ${number2}`);
+                
+                if (answer === null) {
+                    return true; // возвращаемся в меню
+                }
+                
+                const userNumber = Number(answer);
+                
+                if (userNumber === result) {
+                    alert("✅ Правильно!");
+                } else {
+                    alert(`❌ Неправильно! Ответ: ${result}`);
+                }
+                
+                return true; // продолжаем играть
+            }
+
+            // Главный цикл
+            let continuePlaying = true;
+            alert("Игра 2: Простая арифметика");
+            while (continuePlaying) {
+                continuePlaying = playGame();
+            }
+
+            alert("Игра завершена. До свидания!");}
+
+
+
+
+function game3() {
+    alert("Игра №3. Переверни текст");
+    while(true) {
+        const text = prompt("Введи текст: ");
+        
+        if (text === null) {
+            alert("Игра окончена!");
+            return;
+        }
+        
+        if (text.trim() === "") {
+            alert("Вы ничего не ввели");
+            continue;
+        }
+        
+       const array = text.split('');
+       const reversedArray = array.slice().reverse();
+       const reversedString = reversedArray.join('');
+       alert(reversedString);   
+        
+        if(!confirm("Сыграем еще?")) {
+            alert("Игра окончена!");
+            return;
+        }
+    }
+}    
+
+// Игра №4 Камень, ножницы, бумага
+ const things = ["камень", "ножницы", "бумага"];
+
+// 1. Колбэк-функция для показа результата
+function showResult(resultCode, playerChoice, computerChoice) {
+    const messages = {
+        1: `🎉 Победа! ${things[playerChoice]} бьёт ${things[computerChoice]}`,
+        0: `🤝 Ничья! Оба выбрали ${things[playerChoice]}`,
+        [-1]: `💻 Поражение! ${things[computerChoice]} бьёт ${things[playerChoice]}`
+    };
+    
+    // Выводим сообщение
+    alert(messages[resultCode]);
+}
+
+// 2. Функция для вычисления результата
+function checkResult(player, computer, callback) { 
+    let diff = player - computer; 
+    const result = diff === -1 || diff === 2 ? 1 : diff === 0 ? 0 : -1;
+    callback(result, player, computer);
+}
+
+// 3. Основной код игры
+function game4() {
+    alert("Игра №4");
+    let stopPlaying = false;
+    
+    while (!stopPlaying) {
+        let comp = Math.floor(Math.random() * 3);
+        let player = prompt("Введи номер:\n0-камень, 1-ножницы, 2-бумага");
+        
+        // Проверка на отмену
+        if (player === null) { 
+            alert("Игра окончена! Всего доброго");
+            return;
+        }
+        
+        // Проверка на пустой ввод
+        if (player.trim() === "") { 
+            alert("Вы ничего не ввели");
+            continue;
+        }
+        
+        // Проверка на число
+        if (isNaN(player)) {
+            alert("Это не число");
+            continue;
+        }
+        
+        player = Number(player);
+        
+        // Проверка диапазона
+        if (player >= 0 && player <= 2) {
+            // Вызываем функцию с колбэком
+            alert("Компьютер выбрал " + things[comp]);
+            checkResult(player, comp, showResult);
+        } else {
+            alert("Ошибка! Нужно ввести 0, 1 или 2");
+            continue;
+        }
+        
+        // Проверка на продолжение игры
+        if (!confirm("Сыграем еще раз?")) {  
+            alert("Игра окончена! Всего доброго");
+            stopPlaying = true;
+        }
+    }
+}
+
+
+
+
+// Игра №5 Викторина
+const quiz = [
+    {
+        question: "Какой цвет неба?",
+        options: ["1. Красный", "2. Синий", "3. Зеленый"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько дней в неделе?",
+        options: ["1. Шесть", "2. Семь", "3. Восемь"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько у человека пальцев на одной руке?",
+        options: ["1. Четыре", "2. Пять", "3. Шесть"],
+        correctAnswer: 2
+    }
+];
+
+function game5() {
+    alert("Игра №4. Викторина");
+    let correctAnswer = 0, i = 0;
+    
+    while(i < 3) {
+        let answer = prompt(quiz[i].question + "\n" + quiz[i].options.join("\n") + "\nУкажите номер ответа");
+        
+        // 1. Проверка на отмену 
+        if (answer === null) {
+            alert("Игра окончена");
+            break;
+        }
+        
+        // 2. Проверка на пустой ввод
+        if (answer.trim() === "") {
+            alert("Вы ничего не ввели");
+            continue;
+        }
+        
+        // 3. Проверка на ввод числа
+        if (isNaN(answer)) {
+            alert("Введите число");
+            continue;
+        }
+        
+        // 4. Проверка правильного ответа
+        if (Number(answer) === quiz[i].correctAnswer) {
+            correctAnswer++;
+            alert("Ответ правильный! Молодец!");
+        } else {
+            alert("Не угадал :(");
+        }
+        
+        i++;
+    }
+    
+    alert(`Игра окончена! Правильных ответов: ${correctAnswer} из 3`);
+}
+</script>
 </html>
