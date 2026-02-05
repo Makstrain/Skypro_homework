@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Задания</title>
+</head>
+<body>
+    <script>
+        // Задание 1
+            console.log("Задание 1"); 
+            const people_ = [
+            { name: 'Глеб', age: 29 },
+            { name: 'Анна', age: 17 },
+            { name: 'Олег', age: 7 },
+            { name: 'Оксана', age: 47 }
+            ];
+
+            // Cортировка
+            callback = (a,b) => a.age -b.age
+            console.log(people_.sort(callback));
+        
+
+            // Задание 2
+                console.log("Задание 2"); 
+                function isPositive(number) {
+                    return number > 0;
+                }
+
+                function isMale(person) {
+                    return person.gender === 'male';
+                }
+
+                function filter(arr, ruleFunction) {
+                    const output = [];
+
+                    for (let i = 0; i < arr.length; i++) {
+                        if (ruleFunction(arr[i])) {
+                            output.push(arr[i]);
+                        }
+                    }
+
+                    return output;
+                }
+
+                // Тестирование
+                console.log(filter([3, -4, 1, 9], isPositive)); // [3, 1, 9]
+
+                const people = [
+                    {name: 'Глеб', gender: 'male'},
+                    {name: 'Анна', gender: 'female'},
+                    {name: 'Олег', gender: 'male'},
+                    {name: 'Оксана', gender: 'female'}
+                ];
+
+                console.log(filter(people, isMale));
+   
+                  // Задание 3
+             function printDates30() {
+                let elapsedTime = 0;
+                
+                // Функция для вывода текущей даты
+                function printCurrentDate() {
+                    const now = new Date();
+                    console.log(now.toLocaleString());
+                }
+                
+                // Сразу выводим первую дату
+                printCurrentDate();
+                elapsedTime += 3;
+                
+                // Устанавливаем интервал для вывода даты каждые 3 секунды
+                const intervalId = setInterval(() => {
+                    printCurrentDate();
+                    elapsedTime += 3;
+                    
+                    // Проверяем, 30 секунд
+                    if (elapsedTime >= 30) {
+                        clearInterval(intervalId);
+                        
+                        // setTimeout 
+                        const remainingTime = (30 - elapsedTime + 3) * 1000;
+                        setTimeout(() => {
+                            console.log("30 секунд прошло");
+                        }, remainingTime);
+                    }
+                }, 3000);
+            }
+            printDates30();  
+           
+              // Задание 4
+               
+              function delayForSecond_(callback) {
+               // Код писать можно только внутри этой функции
+                setTimeout(callback, 1000);
+                }
+                delayForSecond_(() => {
+                console.log("Задание 4");   
+                console.log('Привет, Глеб!');
+               });
+
+                // Задание 5
+               
+               // Функция delayForSecond через 1 секунду пишет в консоль 
+                // «Прошла одна секунда», а затем вызывает переданный колбэк
+                function delayForSecond(cb) {
+                    setTimeout(() => {
+                        console.log('Прошла одна секунда');
+                        if(cb) {  cb(); }
+                    }, 1000)
+                }
+
+                // Функция sayHi выводит в консоль приветствие для указанного имени
+                function sayHi (name) {
+                     console.log("Задание 5"); 
+                    console.log(`Привет, ${name}!`); 
+                }
+
+                // Код выше менять нельзя
+
+                // Нужно изменить код ниже:
+                delayForSecond(() => sayHi('Глеб'))
+
+    </script>
+</body>
+</html>

@@ -99,7 +99,7 @@
                                             <div class="game-badge">Игра №4</div>
                                             <h3 class="game-card-title">Камень, ножницы,<br> бумага</h3>
                                             <p class="game-description-mobile">Сыграй в популярную игру против компьютера.</p>
-                                            <button class="game-button-mobile">Играть!</button>
+                                            <button class="game-button-mobile" onclick="game4()">Играть!</button>
                                         </div>
                                     </article>
                                 </a>
@@ -203,7 +203,7 @@
         <div class="minigame-card-content">
             <h3 class="minigame-card-title">Камень, <br>ножницы,<br> бумага</h3>
             <p class="minigame-description">Сыграй в популярную игру <br> против компьютера.</p>
-            <button class="minigame-button">Играть!</button>
+            <button class="minigame-button" onclick="game4()">Играть!</button>
         </div>
         <div class="minigame-image-container">
             <img src="images/minigame4.png" alt="Игра 4" class="minigame-image">
@@ -411,6 +411,78 @@ function game3() {
         }
     }
 }    
+
+// Игра №4 Камень, ножницы, бумага
+ const things = ["камень", "ножницы", "бумага"];
+
+// 1. Колбэк-функция для показа результата
+function showResult(resultCode, playerChoice, computerChoice) {
+    const messages = {
+        1: `🎉 Победа! ${things[playerChoice]} бьёт ${things[computerChoice]}`,
+        0: `🤝 Ничья! Оба выбрали ${things[playerChoice]}`,
+        [-1]: `💻 Поражение! ${things[computerChoice]} бьёт ${things[playerChoice]}`
+    };
+    
+    // Выводим сообщение
+    alert(messages[resultCode]);
+}
+
+// 2. Функция для вычисления результата
+function checkResult(player, computer, callback) { 
+    let diff = player - computer; 
+    const result = diff === -1 || diff === 2 ? 1 : diff === 0 ? 0 : -1;
+    callback(result, player, computer);
+}
+
+// 3. Основной код игры
+function game4() {
+    alert("Игра №4");
+    let stopPlaying = false;
+    
+    while (!stopPlaying) {
+        let comp = Math.floor(Math.random() * 3);
+        let player = prompt("Введи номер:\n0-камень, 1-ножницы, 2-бумага");
+        
+        // Проверка на отмену
+        if (player === null) { 
+            alert("Игра окончена! Всего доброго");
+            return;
+        }
+        
+        // Проверка на пустой ввод
+        if (player.trim() === "") { 
+            alert("Вы ничего не ввели");
+            continue;
+        }
+        
+        // Проверка на число
+        if (isNaN(player)) {
+            alert("Это не число");
+            continue;
+        }
+        
+        player = Number(player);
+        
+        // Проверка диапазона
+        if (player >= 0 && player <= 2) {
+            // Вызываем функцию с колбэком
+            alert("Компьютер выбрал " + things[comp]);
+            checkResult(player, comp, showResult);
+        } else {
+            alert("Ошибка! Нужно ввести 0, 1 или 2");
+            continue;
+        }
+        
+        // Проверка на продолжение игры
+        if (!confirm("Сыграем еще раз?")) {  
+            alert("Игра окончена! Всего доброго");
+            stopPlaying = true;
+        }
+    }
+}
+
+
+
 
 // Игра №5 Викторина
 const quiz = [
