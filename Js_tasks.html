@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Задания</title>
+</head>
+<body>
+    <script>
+        console.log("Скрипт загружен!"); // Проверка в консоли
+
+        // Задание 1
+        let a = 10;
+        alert("Первое значение: " + a);
+        a = 20;
+        alert("Второе значение: " + a);
+
+        // Задание 2
+        let firstiPhoneReleaseYear = 2007;
+        alert("Первый iPhone был выпущен в " + firstiPhoneReleaseYear + " году.");
+
+        // Задание 3
+        let javascriptCreator = "Брендан Эйх";
+        // Выводим значение переменной на экран
+        alert("Создатель языка JavaScript: " + javascriptCreator);
+
+        // Задание 4
+        a = 10;
+        let b = 2;
+        alert(a + "+" + b + "=" + (a+b) + ", " + a + "-" + b + "=" + (a-b) + ", " + a + "*" + b + "=" + (a*b) + ", " + a + "/" + b + "=" + (a/b));
+
+        // Задание 5
+        let result = 2 ** 5; 
+        alert("2 в 5-й степени = " + result);
+
+        // Задание 6
+        a = 9;
+        b = 2;
+        alert("Остаток от деления " + a + " на " + b + "=" + a % b);
+
+        // Задание 7
+        let num = 1;
+        num += 5;    
+        num -= 3;   
+        num *= 7;   
+        num /= 3;    
+        num++;       
+        num--;       
+        alert("В задании 7 переписан код, итоговое значение num = " + num);
+
+        // Задание 8
+        let age = prompt("Сколько вам лет?");
+        alert("Вам " + age + " лет!");
+
+        // Задание 9
+        let user = {
+            name: "Алексей",     // строковое значение
+            age: 28,            // числовое значение  
+            isAdmin: true       // булево значение
+        };
+        console.log(user);
+        alert("Имя: " + user.name + "\nВозраст: " + user.age + "\nАдминистратор: " + user.isAdmin);
+
+        // Задание 10
+        let userName = prompt("Как вас зовут?");
+        alert(`Привет, ${userName}!`);
+    </script>
+</body>
+</html>
