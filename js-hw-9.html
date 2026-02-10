@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Задания</title>
+</head>
+<body>
+      <h1 id="title"> Заголовок h1 </h1>
+     <button id="button"> Кнопка </button>
+
+   
+     <p id="paragraph"> Параграф </p>
+     <button id="button2"> Изменить цвет </button>
+
+      <h1 id="title3"> Заголовок h1 задание 3</h1>
+     <button id="button3"> Изменить текст </button>
+
+
+      <h1 id="title4"> Задание 4</h1>
+     <h2 class = 'description' > Описание 1 </h2>
+      <article class = 'description'> Описание 2 </article>
+       <button class = 'description'> Описание 3 </button> <br>
+     <button id="button4"> Изменить Описание </button>
+
+
+    <h1 id="title4"> Задание 5</h1>
+     <p class = 'description_1' > Описание 1 </p>
+      <p class = 'description_1'> Описание 2 </p>
+       <p class = 'description'> Описание 3 </p>
+       <p class = 'description_1'> Описание 4 </p>
+       <p class = 'description'> Описание 5 </p>
+     <button id="button5"> Изменить только description </button>
+    
+     <h1 id="title4"> Задание 6</h1>
+     <button id="button6"> Добавить элемент </button>
+
+      <h1 id="title4"> Задание 7</h1>
+       <p class = 'description_7' > 1 параграф</p>
+      <p class = 'description_7'> 2 параграф  </p>
+       <p class = 'description_7'> 3 параграф  </p>
+       <p class = 'description_7'>4 параграф  </p>
+       <p class = 'description_7'> 5 параграф  </p>
+     <button id="button7"> Удалить элемент </button>
+
+
+    <script>
+        // Задание 1
+     console.log("Задание 1"); 
+     const  descr = document.querySelector("h1");
+     const  btn = document.querySelector("button");
+     console.log(descr, btn);
+
+     button.addEventListener('click', function() 
+       {
+        if (descr.style.display === "none")
+           { 
+            descr.style.display = 'block';
+          } else  { 
+           descr.style.display = 'none';
+        }
+    }
+)
+
+        // Задание 2
+     console.log("Задание 2"); 
+     const  parag = document.querySelector("#paragraph");
+     const  btn1 = document.querySelector("#button2");
+     console.log(parag, btn1);
+     parag.style.color = 'black';
+     btn1.addEventListener('click', function(){
+
+   if (parag.style.color === "black")
+           { 
+            parag.style.color  = 'blue';
+          } else  { 
+           parag.style.color = "black";
+        }
+     })
+
+     // Задание 3
+    console.log("Задание 3"); 
+   ///  const  descr3 = document.querySelector("#descr3");
+     const  btn3 = document.querySelector("#button3");
+     const descr3 = document.getElementById('title3');
+     btn3.addEventListener('click', function(){
+          { 
+            descr3.textContent = 'Привет Мир!';
+          }
+   })
+
+       // Задание 4
+
+     const  btn4 = document.querySelector("#button4");
+     const descrAll = document.querySelectorAll('.description');
+     btn4.addEventListener('click', function()
+     {
+            descrAll.forEach(element => {
+              element.textContent = 'Измененный текст!';  
+            }
+        );
+            
+          }
+      )
+
+        // Задание 5
+
+     const  btn5 = document.querySelector("#button5");
+     const descrP = document.querySelectorAll('.description');
+     btn5.addEventListener('click', function()
+     {
+            descrP.forEach(element => {
+                  if (element.tagName === 'P') {
+            element.textContent = 'Новый текст!';
+        }
+            }
+        );
+            
+          }
+      )
+
+       // Задание 6
+     const  btn6 = document.querySelector("#button6");
+     const newParag = document.createElement('p');
+     newParag.textContent = 'Новый абзац';
+     btn6.addEventListener('click', function()
+     {
+     document.body.appendChild(newParag);
+     }
+    )
+       // Задание 7
+     const  btn7 = document.querySelector("#button7");
+      const paragraph_7 = document.querySelector('p.description_7');
+      btn7.addEventListener('click', function()
+     {
+       paragraph_7.remove();
+     }
+    )
+   
+    
+    </script>
+</body>
+</html>
